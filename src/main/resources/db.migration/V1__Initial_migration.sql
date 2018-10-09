@@ -1,8 +1,9 @@
 -- Create tables
 
 CREATE TABLE IF NOT EXISTS `map` (
-  `id`   bigint(20)  NOT NULL AUTO_INCREMENT,
-  `name` varchar(63) NOT NULL,
+  `id`      bigint(20)  NOT NULL AUTO_INCREMENT,
+  `name`    varchar(63) NOT NULL,
+  `updated` datetime    NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 );
 
