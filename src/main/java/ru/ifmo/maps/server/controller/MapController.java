@@ -1,7 +1,6 @@
 package ru.ifmo.maps.server.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import ru.ifmo.maps.server.api.MapApiDelegate;

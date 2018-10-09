@@ -52,12 +52,6 @@ paths:
         - $ref: '#/parameters/FloorNumber'
         - $ref: '#/parameters/CoordinateX'
         - $ref: '#/parameters/CoordinateY'
-        - in: body
-          name: commentView
-          required: true
-          description: Comment object for sending to server
-          schema:
-            $ref: '#/definitions/AddCommentView'
       responses:
         '200':
           description: OK
@@ -75,6 +69,12 @@ paths:
         - $ref: '#/parameters/FloorNumber'
         - $ref: '#/parameters/CoordinateX'
         - $ref: '#/parameters/CoordinateY'
+        - in: body
+          name: commentView
+          required: true
+          description: Comment object for sending to server
+          schema:
+            $ref: '#/definitions/AddCommentView'
       responses:
         '201':
           description: Created

@@ -27,6 +27,7 @@ public class Comment {
 
     private Long y;
 
+    @Column(insertable = false, updatable = false)
     private LocalDateTime date;
 
     private String type;
@@ -34,4 +35,6 @@ public class Comment {
     private String name;
 
     private String text;
+
+    private boolean deleted;
 }

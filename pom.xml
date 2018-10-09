@@ -8,7 +8,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>ITMO.Maps backend server</name>
+    <name>itmo-maps-server</name>
     <description>ITMO.Maps backend control server for Android application</description>
 
     <parent>
