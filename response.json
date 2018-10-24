@@ -1,0 +1,37 @@
+{
+  "name": "Kronverksky",
+  "pictures": [
+    {
+      "floor": 1,
+      "url": "https://github.com/BrilZliaN/itmo-maps-backend/raw/junk/1f.png"
+    },
+    {
+      "floor": 2,
+      "url": "https://github.com/BrilZliaN/itmo-maps-backend/raw/junk/2f.png"
+    },
+    {
+      "floor": 3,
+      "url": "https://github.com/BrilZliaN/itmo-maps-backend/raw/junk/3f.png"
+    },
+    {
+      "floor": 4,
+      "url": "https://github.com/BrilZliaN/itmo-maps-backend/raw/junk/4f.png"
+    },
+    {
+      "floor": 5,
+      "url": "https://github.com/BrilZliaN/itmo-maps-backend/raw/junk/5f.png"
+    }
+  ],
+  "objects": [
+    {
+      "coordinates": {
+        "x": 2,
+        "y": 2,
+        "floor": 2
+      },
+      "type": "wall",
+      "name": "test",
+      "description": "Test object"
+    }
+  ]
+}
