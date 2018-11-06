@@ -1,0 +1,14 @@
+[
+  {
+    "name": "string",
+    "comment": "string",
+    "date": "2018-11-06T20:25:44.306Z",
+    "type": "string"
+  },
+  {
+    "name": "Username",
+    "comment": "Пара будет в курилке в 403",
+    "date": "2018-11-06T23:25:44.306Z",
+    "type": "warning"
+  }
+]
