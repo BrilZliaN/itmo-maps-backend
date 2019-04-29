@@ -1,0 +1,186 @@
+swagger: '2.0'
+info:
+  description: ITMO.Maps backend server
+  version: dev
+  title: ITMO.Maps API
+host: itmomaps.brilzlian.me
+basePath: /v1
+tags:
+  - name: map
+    description: Access to maps
+  - name: comments
+    description: Managing comments
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /map:
+    get:
+      tags:
+        - map
+      summary: Get all maps
+      operationId: getMaps
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/MapsView'
+  '/map/{mapId}':
+    get:
+      tags:
+        - map
+      summary: Get map by id
+      operationId: getMap
+      parameters:
+        - $ref: '#/parameters/MapId'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/MapView'
+  '/comments/{mapId}/{floorNumber}/{x}/{y}':
+    get:
+      tags:
+        - comments
+      summary: Get all comments attached to a coordinate
+      operationId: getComments
+      parameters:
+        - $ref: '#/parameters/MapId'
+        - $ref: '#/parameters/FloorNumber'
+        - $ref: '#/parameters/CoordinateX'
+        - $ref: '#/parameters/CoordinateY'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CommentView'
+    post:
+      tags:
+        - comments
+      summary: Add a comment
+      operationId: addComment
+      parameters:
+        - $ref: '#/parameters/MapId'
+        - $ref: '#/parameters/FloorNumber'
+        - $ref: '#/parameters/CoordinateX'
+        - $ref: '#/parameters/CoordinateY'
+        - in: body
+          name: commentView
+          required: true
+          description: Comment object for sending to server
+          schema:
+            $ref: '#/definitions/AddCommentView'
+      responses:
+        '201':
+          description: Created
+definitions:
+  MapsView:
+    type: object
+    properties:
+      updated:
+        type: string
+        format: date-time
+      maps:
+        type: array
+        items:
+          $ref: '#/definitions/MapCompactView'
+  MapCompactView:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  MapView:
+    type: object
+    properties:
+      name:
+        type: string
+      pictures:
+        type: array
+        items:
+          $ref: '#/definitions/PictureView'
+      objects:
+        type: array
+        items:
+          $ref: '#/definitions/MapObjectView'
+  PictureView:
+    type: object
+    properties:
+      floor:
+        type: integer
+      url:
+        type: string
+  MapObjectView:
+    type: object
+    properties:
+      coordinates:
+        $ref: '#/definitions/CoordinatesView'
+      type:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+  CoordinatesView:
+    type: object
+    properties:
+      x:
+        type: integer
+        format: int64
+      'y':
+        type: integer
+        format: int64
+      floor:
+        type: integer
+  CommentView:
+    type: object
+    properties:
+      name:
+        type: string
+      comment:
+        type: string
+      date:
+        type: string
+        format: date-time
+      type:
+        type: string
+  AddCommentView:
+    type: object
+    properties:
+      name:
+        type: string
+      comment:
+        type: string
+      type:
+        type: string
+parameters:
+  MapId:
+    in: path
+    name: mapId
+    type: integer
+    format: int64
+    required: true
+  FloorNumber:
+    in: path
+    name: floorNumber
+    type: integer
+    required: true
+  CoordinateX:
+    in: path
+    name: x
+    type: integer
+    format: int64
+    required: true
+  CoordinateY:
+    in: path
+    name: 'y'
+    type: integer
+    format: int64
+    required: true
